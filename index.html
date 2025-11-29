@@ -1,1 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Studio</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Inter;background:radial-gradient(circle at top,#10162b,#07090d);color:white}
+a{text-decoration:none;color:inherit}
+header{display:flex;align-items:center;justify-content:space-between;padding:16px 24px;backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.06)}
+.logo{font-weight:900;font-size:18px}
+nav a{margin-left:14px;padding:10px 14px;border-radius:10px;background:#111;border:1px solid rgba(255,255,255,.06)}
+.hero{max-width:1100px;margin:auto;padding:80px 24px 30px}
+.hero h1{font-size:40px}
+.hero p{opacity:.7}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:20px}
+.box{background:#101524;border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:16px}
+.social{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:20px}
+.section{max-width:1100px;margin:auto;padding:50px 24px}
+.group-title{margin:25px 0 10px;font-weight:700;opacity:.7}
+.team{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.member{background:#0d1323;border-radius:16px;padding:14px;border:1px solid rgba(255,255,255,.06);cursor:pointer;transition:.25s}
+.member:hover{transform:scale(1.03);box-shadow:0 0 22px rgba(100,120,255,.3)}
+.avatar{aspect-ratio:1;border-radius:12px;background-size:cover;background-position:center;margin-bottom:10px}
+h4{font-weight:700}
+.note{opacity:.6;font-size:12px}
+.badge{display:inline-block;padding:4px 10px;border-radius:999px;font-size:12px;margin:4px 0}
+.exec{background:linear-gradient(135deg,#6a85ff,#93a4ff)}
+.board{background:linear-gradient(135deg,#7d59ff,#b394ff)}
+.corp{background:linear-gradient(135deg,#00b0a8,#4effdc)}
+.expand{max-height:0;overflow:hidden;transition:.3s ease;font-size:13px}
+.member.open .expand{max-height:200px;margin-top:8px}
+.task{background:#121830;padding:6px;border-radius:8px;margin-top:6px}
+footer{text-align:center;padding:20px;opacity:.5}
+@media(max-width:600px){.grid{grid-template-columns:1fr}.social{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
 
+<header>
+<div class="logo">Studio</div>
+<nav>
+<a href="#lead">Leadership</a>
+<a href="#">Status</a>
+<a href="#">Contact</a>
+</nav>
+</header>
+
+<section class="hero">
+<h1>Welcome</h1>
+<p>Professional studio control hub</p>
+
+<div class="grid">
+<div class="box"><b>Community Rules</b><p>Guidelines & standards</p></div>
+<div class="box"><b>Systems</b><p>Gameplay documentation</p></div>
+<div class="box"><b>Moderation</b><p>Proper action flow</p></div>
+</div>
+
+<div class="social">
+<div class="box">Discord Link Placeholder</div>
+<div class="box">Roblox Group Link Placeholder</div>
+</div>
+</section>
+
+<section id="lead" class="section">
+
+<h2>Leadership</h2>
+
+<div class="group-title">Executive Officer</div>
+<div class="team">
+<div class="member exec" onclick="toggle(this)">
+<div class="avatar" data-user="not_jacooob"></div>
+<h4>Jacob</h4>
+<span class="badge exec">Executive Officer</span>
+<div class="note">@not_jacooob · Established 2025</div>
+<div class="expand">
+<div class="task">Final approval authority</div>
+<div class="task">Company vision</div>
+</div>
+</div>
+</div>
+
+<div class="group-title">Executive Board</div>
+<div class="team">
+
+<div class="member board" onclick="toggle(this)">
+<div class="avatar" data-user="67stcrrygems"></div>
+<h4>hearts4dylan</h4>
+<span class="badge board">PR Director</span>
+<div class="note">@67stcrrygems</div>
+<div class="expand">
+<div class="task">Public relations</div>
+<div class="task">Media oversight</div>
+</div>
+</div>
+
+<div class="member board" onclick="toggle(this)">
+<div class="avatar" data-user="BlazeBurnage"></div>
+<h4>Oliver</h4>
+<span class="badge board">Staffing Overseer (Temp)</span>
+<div class="note">@BlazeBurnage</div>
+<div class="expand">
+<div class="task">Hiring</div>
+<div class="task">Staff management</div>
+</div>
+</div>
+
+<div class="member board" onclick="toggle(this)">
+<div class="avatar"></div>
+<h4>Ashley.</h4>
+<span class="badge board">Operations Overseer (Temp)</span>
+<div class="note">Executive Operations</div>
+<div class="expand">
+<div class="task">System coordination</div>
+<div class="task">Operations control</div>
+</div>
+</div>
+
+<div class="member board" onclick="toggle(this)">
+<div class="avatar"></div>
+<h4>cenoooeoeooe</h4>
+<span class="badge board">Development Overseer (Temp)</span>
+<div class="note">Engineering & Systems</div>
+<div class="expand">
+<div class="task">Development leadership</div>
+<div class="task">Game systems</div>
+</div>
+</div>
+
+</div>
+
+<div class="group-title">Corporate Officers</div>
+<div class="team">
+
+<div class="member corp" onclick="toggle(this)">
+<div class="avatar"></div>
+<h4>mia</h4>
+<span class="badge corp">Intern Training Director</span>
+<div class="note">Corporate</div>
+<div class="expand">
+<div class="task">Onboarding</div>
+<div class="task">Training programs</div>
+</div>
+</div>
+
+<div class="member corp" onclick="toggle(this)">
+<div class="avatar"></div>
+<h4>Open</h4>
+<span class="badge corp">Reserved</span>
+<div class="note">Available Position</div>
+<div class="expand">
+<div class="task">Future role</div>
+</div>
+</div>
+
+</div>
+
+</section>
+
+<footer>© Studio</footer>
+
+<script>
+function toggle(e){e.classList.toggle("open")}
+document.querySelectorAll(".avatar").forEach(a=>{
+let u=a.getAttribute("data-user")
+if(u)a.style.backgroundImage=`url(https://www.roblox.com/headshot-thumbnail/image?userId=${u}&width=420&height=420&format=png)`
+})
+</script>
+
+</body>
+</html>
