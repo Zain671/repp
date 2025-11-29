@@ -395,9 +395,13 @@ header {
 
 .member-avatar {
   width: 100%;
+  height: auto;
   aspect-ratio: 1;
   border-radius: 16px;
-  background: rgba(40, 40, 45, 0.5) center/cover no-repeat;
+  background-color: rgba(40,40,45,0.5);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
   border: 2px solid rgba(255, 255, 255, 0.1);
   margin-bottom: 18px;
 }
@@ -438,7 +442,17 @@ header {
   color: #bfdbfe;
   border: 1px solid rgba(59, 130, 246, 0.4);
 }
+  
+.operations .member-badge {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.25), rgba(52, 211, 153, 0.25));
+  color: #d1fae5;
+  border: 1px solid rgba(16, 185, 129, 0.6);
+}
 
+.member-card.operations::before {
+  background: linear-gradient(90deg, #10b981, #34d399);
+}
+  
 .member-handle {
   font-size: 13px;
   color: #737373;
@@ -755,7 +769,7 @@ footer {
       <div class="member-grid">
 
         <!-- Mia -->
-        <div class="member-card exec">
+         <div class="member-card exec operations">
           <div class="member-avatar" style="background-image: url('https://tr.rbxcdn.com/30DAY-Avatar-7207ADA89B2D25862A0C267F7B6B6799-Png/720/720/Avatar/Webp/noFilter')"></div>
           <div class="member-info">
             <h4>Mia</h4>
@@ -777,7 +791,7 @@ footer {
         </div>
 
         <!-- hearts4dylan -->
-        <div class="member-card exec">
+           <div class="member-card exec operations">
           <div class="member-avatar" style="background-image: url('https://tr.rbxcdn.com/30DAY-Avatar-819000BF2EF30C5DC45C593D7312B537-Png/720/720/Avatar/Webp/noFilter')"></div>
           <div class="member-info">
             <h4>hearts4dylan</h4>
