@@ -109,6 +109,78 @@ header {
   padding: 40px;
 }
 
+/* Main Content Layout */
+.content-wrapper {
+  display: flex;
+  gap: 32px;
+  margin-top: 40px;
+}
+
+/* Sidebar Navigation */
+.sidebar-nav {
+  width: 280px;
+  flex-shrink: 0;
+}
+
+.nav-section {
+  margin-bottom: 32px;
+}
+
+.nav-section-title {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #737373;
+  margin-bottom: 12px;
+  padding-left: 12px;
+}
+
+.nav-links {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.nav-link {
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #a1a1a1;
+  background: transparent;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  text-decoration: none;
+  display: block;
+}
+
+.nav-link:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: #e5e5e5;
+}
+
+.nav-link.active {
+  background: rgba(139, 92, 246, 0.15);
+  border-color: rgba(139, 92, 246, 0.3);
+  color: #ffffff;
+}
+
+/* Main Content Area */
+.main-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.content-section {
+  display: none;
+}
+
+.content-section.active {
+  display: block;
+}
+
 /* Hero Section */
 .hero {
   background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(236, 72, 153, 0.1) 100%);
@@ -336,6 +408,7 @@ header {
   margin-bottom: 48px;
   margin-top: 60px;
 }
+
 .category-label {
   font-size: 12px;
   font-weight: 700;
@@ -374,7 +447,6 @@ header {
   border-radius: 20px 20px 0 0;
 }
 
-/* EXECUTIVE COLORS -> WUMPUS GRADIENT */
 .member-card.exec::before {
   background: linear-gradient(90deg, #f5d7e4, #cfd9ff, #f7b3df);
 }
@@ -424,7 +496,6 @@ header {
   margin-bottom: 8px;
 }
 
-/* EXEC BADGE -> WUMPUS PASTEL */
 .exec .member-badge {
   background: linear-gradient(135deg, rgba(245, 215, 228, 0.28), rgba(207, 217, 255, 0.28));
   color: #ffffff;
@@ -565,6 +636,21 @@ footer {
   margin-top: 80px;
 }
 
+@media(max-width: 1024px) {
+  .content-wrapper {
+    flex-direction: column;
+  }
+  
+  .sidebar-nav {
+    width: 100%;
+  }
+  
+  .nav-links {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+
 @media(max-width: 768px) {
   .container {
     padding: 24px;
@@ -614,259 +700,335 @@ footer {
     <p>Welcome to the Portbay Retail information hub. Discover our leadership structure, community guidelines, and operational systems that power our Roblox retail experience.</p>
   </section>
 
-  <section>
-    <h2 class="section-header">Information Hub</h2>
-    <div class="info-grid">
-      <div class="info-card">
-        <div class="info-card-icon">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+  <div class="content-wrapper">
+    
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar-nav">
+      <nav class="nav-section">
+        <div class="nav-section-title">General Information</div>
+        <div class="nav-links">
+          <a href="#" class="nav-link active" data-section="general">Welcome</a>
+          <a href="#" class="nav-link" data-section="faq">Frequently Asked Questions</a>
+          <a href="#" class="nav-link" data-section="rules">Discord Server Rules</a>
+          <a href="#" class="nav-link" data-section="appeals">Ban Appeals</a>
         </div>
-        <h3>Community Rules</h3>
-        <p>Expectations and conduct guidelines for all members of the Portbay community.</p>
-      </div>
+      </nav>
       
-      <div class="info-card">
-        <div class="info-card-icon">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg>
+      <nav class="nav-section">
+        <div class="nav-section-title">Admin Information</div>
+        <div class="nav-links">
+          <a href="#" class="nav-link" data-section="admin-guide">Admin Guide</a>
+          <a href="#" class="nav-link" data-section="commands">Management Commands</a>
         </div>
-        <h3>Systems</h3>
-        <p>Store & gameplay operations, including mechanics and management procedures.</p>
-      </div>
+      </nav>
       
-      <div class="info-card">
-        <div class="info-card-icon">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+      <nav class="nav-section">
+        <div class="nav-section-title">Leadership</div>
+        <div class="nav-links">
+          <a href="#" class="nav-link" data-section="leadership">Leadership Team</a>
         </div>
-        <h3>Moderation</h3>
-        <p>Fair and structured actions to maintain a positive community environment.</p>
-      </div>
-    </div>
-  </section>
+      </nav>
+    </aside>
 
-  <section>
-    <h2 class="section-header">Quick Links</h2>
-    <div class="quick-links">
-      <div class="link-card" onclick="window.open('https://discord.gg/portbay', '_blank')">
-        <img src="https://cdn.simpleicons.org/discord/white" alt="Discord">
-        <div class="link-card-content">
-          <h3>Discord Server</h3>
-          <p>discord.gg/portbay</p>
-        </div>
-      </div>
+    <!-- Main Content Area -->
+    <main class="main-content">
       
-      <a href="https://www.roblox.com/communities/36029547/Portbay-Retail#!/about" target="_blank" class="link-card">
-        <img src="https://cdn.simpleicons.org/roblox/white" alt="Roblox">
-        <div class="link-card-content">
-          <h3>Group Link</h3>
-          <p>Join our community</p>
-        </div>
-      </a>
-    </div>
-  </section>
-<section class="leadership-section">
-    <h2 class="section-header">Leadership</h2>
-
-    <div class="member-grid">
-
-      <div class="member-card exec">
-        <div class="member-avatar" style="background-image: url('https://tr.rbxcdn.com/30DAY-Avatar-83B054748536D5F8C7FE602463AF287F-Png/352/352/Avatar/Webp/noFilter')"></div>
-        <div class="member-info">
-          <h4>Jacob</h4>
-          <span class="member-badge">Executive Officer</span>
-          <div class="member-handle">@not_jacooob</div>
-          <div class="member-description">As the Executive Officer of Portbay Retail, you stand at the top of the leadership structure, directing company operations and long-term strategy. You guide the organization's future through decision-making that impacts every department. You oversee all corporate divisions, development teams, and staff members, ensuring Portbay Retail operates at its highest standard.</div>
-        </div>
-        <div class="expand-toggle">
-          <span>View Managed Roles</span>
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 10l5 5 5-5z"/></svg>
-        </div>
-        <div class="member-expand">
-          <div class="expand-section">
-            <div class="expand-title">Manages</div>
-            <div class="role-tag">Public Relations Director</div>
-            <div class="role-tag">Staffing Overseer</div>
-            <div class="role-tag">Operations Overseer</div>
-            <div class="role-tag">Development Overseer</div>
-            <div class="role-tag">Intern Director</div>
+      <!-- General Information Section -->
+      <section id="general" class="content-section active">
+        <h2 class="section-header">Information Hub</h2>
+        <div class="info-grid">
+          <div class="info-card">
+            <div class="info-card-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+            </div>
+            <h3>Community Rules</h3>
+            <p>Expectations and conduct guidelines for all members of the Portbay community.</p>
+          </div>
+          
+          <div class="info-card">
+            <div class="info-card-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg>
+            </div>
+            <h3>Systems</h3>
+            <p>Store & gameplay operations, including mechanics and management procedures.</p>
+          </div>
+          
+          <div class="info-card">
+            <div class="info-card-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+            </div>
+            <h3>Moderation</h3>
+            <p>Fair and structured actions to maintain a positive community environment.</p>
           </div>
         </div>
-      </div>
 
-      <div class="member-card exec">
-        <div class="member-avatar" style="background-image: url('https://tr.rbxcdn.com/30DAY-Avatar-E621F06D01B538B19483DA07F7EE7A05-Png/720/720/Avatar/Webp/noFilter')"></div>
-        <div class="member-info">
-          <h4>Ashley</h4>
-          <span class="member-badge">Operations Overseer</span>
-          <div class="member-handle">@HeartzzAshleyy</div>
-          <div class="member-description">As the Operations Director at Portbay Retail, you ensure smooth daily operations and strong coordination across corporate teams. You oversee staffing flow, keep leadership fully informed, and resolve operational issues as they arise. Your calm and professional approach maintains high corporate activity and ensures management standards are consistently upheld while working closely with the Staffing Director to maintain operational excellence.</div>
-        </div>
-        <div class="expand-toggle">
-          <span>View Managed Roles</span>
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 10l5 5 5-5z"/></svg>
-        </div>
-        <div class="member-expand">
-          <div class="expand-section">
-            <div class="expand-title">Manages</div>
-            <div class="role-tag">Lead Internal Affairs</div>
-            <div class="role-tag">Deputy Internal Affairs</div>
-            <div class="role-tag">Internal Affairs Team</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="member-card exec">
-        <div class="member-avatar" style="background-image: url('https://tr.rbxcdn.com/30DAY-Avatar-63420191DEB64FF2EDDFE6882A097694-Png/352/352/Avatar/Webp/noFilter')"></div>
-        <div class="member-info">
-          <h4>Ceno</h4>
-          <span class="member-badge">Development Overseer</span>
-          <div class="member-handle">@cenofrr</div>
-          <div class="member-description">As the Development Overseer at Portbay Retail, you oversee all development and scripting activity. You ensure system updates and new features are reviewed and approved before release, maintaining quality and stability across all platforms. Working closely with the executive team, you lead regular update cycles and ensure all development aligns with Portbay Retail's long-term goals.</div>
-        </div>
-        <div class="expand-toggle">
-          <span>View Managed Roles</span>
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 10l5 5 5-5z"/></svg>
-        </div>
-        <div class="member-expand">
-          <div class="expand-section">
-            <div class="expand-title">Manages</div>
-            <div class="role-tag">Development Director</div>
-            <div class="role-tag">Development Team</div>
-            <div class="role-tag">External Contractor</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="member-card exec">
-        <div class="member-avatar" style="background-image: url('https://tr.rbxcdn.com/30DAY-Avatar-DC16B912AF210DD15B8AEE3074C0D92F-Png/720/720/Avatar/Webp/noFilter')"></div>
-        <div class="member-info">
-          <h4>Oliver</h4>
-          <span class="member-badge">Staffing Overseer</span>
-          <div class="member-handle">@BlazeBurnage</div>
-          <div class="member-description">As Staffing Overseer at Portbay Retail, you lead and oversee a group of junior managers, track promotions and resignations, and update policies. You handle training files, schedules, and presentations, and work with Internal Affairs to approve or deny requests and review each case carefully.</div>
-        </div>
-        <div class="expand-toggle">
-          <span>View Managed Roles</span>
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 10l5 5 5-5z"/></svg>
-        </div>
-        <div class="member-expand">
-          <div class="expand-section">
-            <div class="expand-title">Manages</div>
-            <div class="role-tag">Intern Director</div>
-            <div class="role-tag">Staffing Director</div>
-            <div class="role-tag">Regional Manager</div>
-            <div class="role-tag">Department Manager</div>
-            <div class="role-tag">Floor Supervisor</div>
-            <div class="role-tag">Senior Team Leader</div>
-            <div class="role-tag">Team Leader</div>
-          </div>
-        </div>
-      </div>
-      
-    </div>
-
-    <!-- OPERATIONS OVERSIGHT -->
-    <div class="role-category">
-      <div class="category-label">Operations Department</div>
-      <div class="member-grid">
-
-        <div class="member-card operations">
-          <div class="member-avatar" style="background-image: url('https://tr.rbxcdn.com/30DAY-Avatar-7207ADA89B2D25862A0C267F7B6B6799-Png/720/720/Avatar/Webp/noFilter')"></div>
-          <div class="member-info">
-            <h4>Mia</h4>
-            <span class="member-badge">Intern Director</span>
-            <div class="member-handle">@sourchicken68</div>
-            <div class="member-description">As the Intern Director at Portbay Retail, you oversee the training, development, and placement of interns. You manage onboarding, monitor performance, and ensure all interns understand company policies and expectations. By maintaining organization and mentorship standards, you help develop future leaders within the company.</div>
-          </div>
-          <div class="expand-toggle">
-            <span>View Managed Roles</span>
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 10l5 5 5-5z"/></svg>
-          </div>
-          <div class="member-expand">
-            <div class="expand-section">
-              <div class="expand-title">Manages</div>
-              <div class="role-tag">Deputy Intern Director</div>
-              <div class="role-tag">Intern Trainer</div>
-              <div class="role-tag">Management Intern</div>
+        <h2 class="section-header">Quick Links</h2>
+        <div class="quick-links">
+          <div class="link-card" onclick="window.open('https://discord.gg/portbay', '_blank')">
+            <img src="https://cdn.simpleicons.org/discord/white" alt="Discord">
+            <div class="link-card-content">
+              <h3>Discord Server</h3>
+              <p>discord.gg/portbay</p>
             </div>
           </div>
+          
+          <a href="https://www.roblox.com/communities/36029547/Portbay-Retail#!/about" target="_blank" class="link-card">
+            <img src="https://cdn.simpleicons.org/roblox/white" alt="Roblox">
+            <div class="link-card-content">
+              <h3>Group Link</h3>
+              <p>Join our community</p>
+            </div>
+          </a>
         </div>
+      </section>
 
-        <div class="member-card operations">
-          <div class="member-avatar" style="background-image: url('https://tr.rbxcdn.com/30DAY-Avatar-819000BF2EF30C5DC45C593D7312B537-Png/720/720/Avatar/Webp/noFilter')"></div>
-          <div class="member-info">
-            <h4>Gems!!</h4>
-            <span class="member-badge">Public Relations Director</span>
-            <div class="member-handle">@67stcrrygems</div>
-            <div class="member-description">As the Public Relations Director at Portbay Retail, you manage the company's public image and communication strategy. You oversee announcements, community interaction, and brand presentation across all platforms. You ensure messaging is professional, consistent, and aligned with corporate values while managing responses to public concerns and representing the company with confidence and integrity.</div>
-          </div>
-          <div class="expand-toggle">
-            <span>View Managed Roles</span>
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 10l5 5 5-5z"/></svg>
-          </div>
-          <div class="member-expand">
-            <div class="expand-section">
-              <div class="expand-title">Manages</div>
-              <div class="role-tag">Deputy Public Relations Director</div>
-              <div class="role-tag">Public Relations Member</div>
+      <!-- FAQ Section -->
+      <section id="faq" class="content-section">
+        <h2 class="section-header">Frequently Asked Questions</h2>
+        <p style="color: #a1a1a1; line-height: 1.6;">
+          Coming soon...
+        </p>
+      </section>
+
+      <!-- Rules Section -->
+      <section id="rules" class="content-section">
+        <h2 class="section-header">Discord Server Rules</h2>
+        <p style="color: #a1a1a1; line-height: 1.6;">
+          Coming soon...
+        </p>
+      </section>
+
+      <!-- Appeals Section -->
+      <section id="appeals" class="content-section">
+        <h2 class="section-header">Ban Appeals</h2>
+        <p style="color: #a1a1a1; line-height: 1.6;">
+          Coming soon...
+        </p>
+      </section>
+
+      <!-- Admin Guide Section -->
+      <section id="admin-guide" class="content-section">
+        <h2 class="section-header">Admin Guide</h2>
+        <p style="color: #a1a1a1; line-height: 1.6;">
+          Complete guide coming soon...
+        </p>
+      </section>
+
+      <!-- Commands Section -->
+      <section id="commands" class="content-section">
+        <h2 class="section-header">Management Commands</h2>
+        <p style="color: #a1a1a1; line-height: 1.6;">
+          Command reference coming soon...
+        </p>
+      </section>
+
+      <!-- Leadership Section -->
+      <section id="leadership" class="content-section">
+        <h2 class="section-header">Leadership</h2>
+
+        <div class="member-grid">
+
+          <div class="member-card exec">
+            <div class="member-avatar" style="background-image: url('https://tr.rbxcdn.com/30DAY-Avatar-83B054748536D5F8C7FE602463AF287F-Png/352/352/Avatar/Webp/noFilter')"></div>
+            <div class="member-info">
+              <h4>Jacob</h4>
+              <span class="member-badge">Executive Officer</span>
+              <div class="member-handle">@not_jacooob</div>
+              <div class="member-description">As the Executive Officer of Portbay Retail, you stand at the top of the leadership structure, directing company operations and long-term strategy. You guide the organization's future through decision-making that impacts every department. You oversee all corporate divisions, development teams, and staff members, ensuring Portbay Retail operates at its highest standard.</div>
+            </div>
+            <div class="expand-toggle">
+              <span>View Managed Roles</span>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 10l5 5 5-5z"/></svg>
+            </div>
+            <div class="member-expand">
+              <div class="expand-section">
+                <div class="expand-title">Manages</div>
+                <div class="role-tag">Public Relations Director</div>
+                <div class="role-tag">Staffing Overseer</div>
+                <div class="role-tag">Operations Overseer</div>
+                <div class="role-tag">Development Overseer</div>
+                <div class="role-tag">Intern Director</div>
+              </div>
             </div>
           </div>
-        </div>
 
-      </div>
-    </div>
-
-    <!-- CORPORATE OFFICERS -->
-    <div class="role-category">
-      <div class="category-label">Corporate Officers</div>
-      <div class="member-grid">
-        
-        <div class="member-card corp">
-          <div class="member-avatar" style="background-image: url('https://tr.rbxcdn.com/30DAY-AvatarHeadshot-8FBA83C22CA7E400C39B123480869226-Png/150/150/AvatarHeadshot/Webp/noFilter')"></div>
-          <div class="member-info">
-            <h4>Ray</h4>
-            <span class="member-badge">Intern Staffing Director</span>
-            <div class="member-handle">@reiyuaa</div>
-            <div class="member-description">As the Intern Staffing Director at Portbay Retail, you serve as the second-in-command for all staffing operations and directly support the Staffing Overseer. You manage leadership hiring decisions, oversee promotions and terminations, and ensure all departments remain properly staffed. You handle escalated staffing issues, review performance at a high level, and help shape staffing policy across the company while maintaining operational stability within management teams.</div>
-          </div>
-          <div class="expand-toggle">
-            <span>View Managed Roles</span>
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 10l5 5 5-5z"/></svg>
-          </div>
-          <div class="member-expand">
-            <div class="expand-section">
-              <div class="expand-title">Manages</div>
-              <div class="role-tag">Regional Manager</div>
-              <div class="role-tag">Department Manager</div>
-              <div class="role-tag">Floor Supervisor</div>
-              <div class="role-tag">Senior Team Leader</div>
-              <div class="role-tag">Team Leader</div>
+          <div class="member-card exec">
+            <div class="member-avatar" style="background-image: url('https://tr.rbxcdn.com/30DAY-Avatar-E621F06D01B538B19483DA07F7EE7A05-Png/720/720/Avatar/Webp/noFilter')"></div>
+            <div class="member-info">
+              <h4>Ashley</h4>
+              <span class="member-badge">Operations Overseer</span>
+              <div class="member-handle">@HeartzzAshleyy</div>
+              <div class="member-description">As the Operations Director at Portbay Retail, you ensure smooth daily operations and strong coordination across corporate teams. You oversee staffing flow, keep leadership fully informed, and resolve operational issues as they arise. Your calm and professional approach maintains high corporate activity and ensures management standards are consistently upheld while working closely with the Staffing Director to maintain operational excellence.</div>
+            </div>
+            <div class="expand-toggle">
+              <span>View Managed Roles</span>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 10l5 5 5-5z"/></svg>
+            </div>
+            <div class="member-expand">
+              <div class="expand-section">
+                <div class="expand-title">Manages</div>
+                <div class="role-tag">Lead Internal Affairs</div>
+                <div class="role-tag">Deputy Internal Affairs</div>
+                <div class="role-tag">Internal Affairs Team</div>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="member-card corp">
-          <div class="member-avatar" style="background-image: url('https://tr.rbxcdn.com/30DAY-Avatar-B6138935A000B782C050AEBFE8DF811F-Png/720/720/Avatar/Webp/noFilter')"></div>
-          <div class="member-info">
-            <h4>Corrupt</h4>
-            <span class="member-badge">Intern Internal Affairs Team</span>
-            <div class="member-handle">@xcoruxpt</div>
-            <div class="member-description">As a member of the Internal Affairs Team at Portbay Retail, you are responsible for reviewing staff conduct, investigating reports, and ensuring all employees follow company policy. You handle disciplinary cases, disputes, and administrative reviews with fairness and confidentiality. Your role protects the company’s integrity by enforcing standards and ensuring all issues are resolved professionally.</div>
-          </div>
-          <div class="expand-toggle">
-            <span>Doesn't Manage Anything.</span>
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 10l5 5 5-5z"/></svg>
-          </div>
-          <div class="member-expand">
-            <div class="expand-section">
-              <div class="expand-title">Doesn't Manage.</div>
+          <div class="member-card exec">
+            <div class="member-avatar" style="background-image: url('https://tr.rbxcdn.com/30DAY-Avatar-63420191DEB64FF2EDDFE6882A097694-Png/352/352/Avatar/Webp/noFilter')"></div>
+            <div class="member-info">
+              <h4>Ceno</h4>
+              <span class="member-badge">Development Overseer</span>
+              <div class="member-handle">@cenofrr</div>
+              <div class="member-description">As the Development Overseer at Portbay Retail, you oversee all development and scripting activity. You ensure system updates and new features are reviewed and approved before release, maintaining quality and stability across all platforms. Working closely with the executive team, you lead regular update cycles and ensure all development aligns with Portbay Retail's long-term goals.</div>
+            </div>
+            <div class="expand-toggle">
+              <span>View Managed Roles</span>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 10l5 5 5-5z"/></svg>
+            </div>
+            <div class="member-expand">
+              <div class="expand-section">
+                <div class="expand-title">Manages</div>
+                <div class="role-tag">Development Director</div>
+                <div class="role-tag">Development Team</div>
+                <div class="role-tag">External Contractor</div>
+              </div>
             </div>
           </div>
+
+          <div class="member-card exec">
+            <div class="member-avatar" style="background-image: url('https://tr.rbxcdn.com/30DAY-Avatar-DC16B912AF210DD15B8AEE3074C0D92F-Png/720/720/Avatar/Webp/noFilter')"></div>
+            <div class="member-info">
+              <h4>Oliver</h4>
+              <span class="member-badge">Staffing Overseer</span>
+              <div class="member-handle">@BlazeBurnage</div>
+              <div class="member-description">As Staffing Overseer at Portbay Retail, you lead and oversee a group of junior managers, track promotions and resignations, and update policies. You handle training files, schedules, and presentations, and work with Internal Affairs to approve or deny requests and review each case carefully.</div>
+            </div>
+            <div class="expand-toggle">
+              <span>View Managed Roles</span>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 10l5 5 5-5z"/></svg>
+            </div>
+            <div class="member-expand">
+              <div class="expand-section">
+                <div class="expand-title">Manages</div>
+                <div class="role-tag">Intern Director</div>
+                <div class="role-tag">Staffing Director</div>
+                <div class="role-tag">Regional Manager</div>
+                <div class="role-tag">Department Manager</div>
+                <div class="role-tag">Floor Supervisor</div>
+                <div class="role-tag">Senior Team Leader</div>
+                <div class="role-tag">Team Leader</div>
+              </div>
+            </div>
+          </div>
+          
         </div>
 
-      </div>
-    </div>
+        <div class="role-category">
+          <div class="category-label">Operations Department</div>
+          <div class="member-grid">
 
-  </section>
+            <div class="member-card operations">
+              <div class="member-avatar" style="background-image: url('https://tr.rbxcdn.com/30DAY-Avatar-7207ADA89B2D25862A0C267F7B6B6799-Png/720/720/Avatar/Webp/noFilter')"></div>
+              <div class="member-info">
+                <h4>Mia</h4>
+                <span class="member-badge">Intern Director</span>
+                <div class="member-handle">@sourchicken68</div>
+                <div class="member-description">As the Intern Director at Portbay Retail, you oversee the training, development, and placement of interns. You manage onboarding, monitor performance, and ensure all interns understand company policies and expectations. By maintaining organization and mentorship standards, you help develop future leaders within the company.</div>
+              </div>
+              <div class="expand-toggle">
+                <span>View Managed Roles</span>
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 10l5 5 5-5z"/></svg>
+              </div>
+              <div class="member-expand">
+                <div class="expand-section">
+                  <div class="expand-title">Manages</div>
+                  <div class="role-tag">Deputy Intern Director</div>
+                  <div class="role-tag">Intern Trainer</div>
+                  <div class="role-tag">Management Intern</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="member-card operations">
+              <div class="member-avatar" style="background-image: url('https://tr.rbxcdn.com/30DAY-Avatar-819000BF2EF30C5DC45C593D7312B537-Png/720/720/Avatar/Webp/noFilter')"></div>
+              <div class="member-info">
+                <h4>Gems!!</h4>
+                <span class="member-badge">Public Relations Director</span>
+                <div class="member-handle">@67stcrrygems</div>
+                <div class="member-description">As the Public Relations Director at Portbay Retail, you manage the company's public image and communication strategy. You oversee announcements, community interaction, and brand presentation across all platforms. You ensure messaging is professional, consistent, and aligned with corporate values while managing responses to public concerns and representing the company with confidence and integrity.</div>
+              </div>
+              <div class="expand-toggle">
+                <span>View Managed Roles</span>
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 10l5 5 5-5z"/></svg>
+              </div>
+              <div class="member-expand">
+                <div class="expand-section">
+                  <div class="expand-title">Manages</div>
+                  <div class="role-tag">Deputy Public Relations Director</div>
+                  <div class="role-tag">Public Relations Member</div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="role-category">
+          <div class="category-label">Corporate Officers</div>
+          <div class="member-grid">
+            
+            <div class="member-card corp">
+              <div class="member-avatar" style="background-image: url('https://tr.rbxcdn.com/30DAY-AvatarHeadshot-8FBA83C22CA7E400C39B123480869226-Png/150/150/AvatarHeadshot/Webp/noFilter')"></div>
+              <div class="member-info">
+                <h4>Ray</h4>
+                <span class="member-badge">Intern Staffing Director</span>
+                <div class="member-handle">@reiyuaa</div>
+                <div class="member-description">As the Intern Staffing Director at Portbay Retail, you serve as the second-in-command for all staffing operations and directly support the Staffing Overseer. You manage leadership hiring decisions, oversee promotions and terminations, and ensure all departments remain properly staffed. You handle escalated staffing issues, review performance at a high level, and help shape staffing policy across the company while maintaining operational stability within management teams.</div>
+              </div>
+              <div class="expand-toggle">
+                <span>View Managed Roles</span>
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 10l5 5 5-5z"/></svg>
+              </div>
+              <div class="member-expand">
+                <div class="expand-section">
+                  <div class="expand-title">Manages</div>
+                  <div class="role-tag">Regional Manager</div>
+                  <div class="role-tag">Department Manager</div>
+                  <div class="role-tag">Floor Supervisor</div>
+                  <div class="role-tag">Senior Team Leader</div>
+                  <div class="role-tag">Team Leader</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="member-card corp">
+              <div class="member-avatar" style="background-image: url('https://tr.rbxcdn.com/30DAY-Avatar-B6138935A000B782C050AEBFE8DF811F-Png/720/720/Avatar/Webp/noFilter')"></div>
+              <div class="member-info">
+                <h4>Corrupt</h4>
+                <span class="member-badge">Intern Internal Affairs Team</span>
+                <div class="member-handle">@xcoruxpt</div>
+                <div class="member-description">As a member of the Internal Affairs Team at Portbay Retail, you are responsible for reviewing staff conduct, investigating reports, and ensuring all employees follow company policy. You handle disciplinary cases, disputes, and administrative reviews with fairness and confidentiality. Your role protects the company's integrity by enforcing standards and ensuring all issues are resolved professionally.</div>
+              </div>
+              <div class="expand-toggle">
+                <span>Doesn't Manage Anything.</span>
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 10l5 5 5-5z"/></svg>
+              </div>
+              <div class="member-expand">
+                <div class="expand-section">
+                  <div class="expand-title">Doesn't Manage.</div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </section>
+
+    </main>
+
+  </div>
   
   <footer>
     © 2025 Portbay Retail. All rights reserved.
@@ -875,6 +1037,7 @@ footer {
 </div>
 
 <script>
+// Member card expand functionality
 document.querySelectorAll(".member-card").forEach(card => {
   const toggle = card.querySelector(".expand-toggle");
   if (!toggle) return;
@@ -889,6 +1052,28 @@ document.querySelectorAll(".member-card").forEach(card => {
     if (!wasOpen) {
       card.classList.add("open");
     }
+  });
+});
+
+// Navigation functionality
+document.querySelectorAll(".nav-link").forEach(link => {
+  link.addEventListener("click", function(e) {
+    e.preventDefault();
+    
+    // Remove active class from all links
+    document.querySelectorAll(".nav-link").forEach(l => l.classList.remove("active"));
+    
+    // Add active class to clicked link
+    this.classList.add("active");
+    
+    // Hide all sections
+    document.querySelectorAll(".content-section").forEach(section => {
+      section.classList.remove("active");
+    });
+    
+    // Show the selected section
+    const sectionId = this.getAttribute("data-section");
+    document.getElementById(sectionId).classList.add("active");
   });
 });
 </script>
