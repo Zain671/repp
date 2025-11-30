@@ -707,8 +707,8 @@ footer {
       <nav class="nav-section">
         <div class="nav-section-title">General Information</div>
         <div class="nav-links">
-          <a href="#" class="nav-link active" data-section="general">Welcome</a>
-          <a href="#" class="nav-link" data-section="faq">Frequently Asked Questions</a>
+          <a href="#general" class="nav-link active" data-section="general">Welcome</a>
+          <a href="#faq" class="nav-link" data-section="faq">Frequently Asked Questions</a>
           <a href="#" class="nav-link" data-section="rules">Discord Server Rules</a>
           <a href="#" class="nav-link" data-section="appeals">Ban Appeals</a>
         </div>
@@ -717,7 +717,7 @@ footer {
       <nav class="nav-section">
         <div class="nav-section-title">Admin Information</div>
         <div class="nav-links">
-          <a href="#" class="nav-link" data-section="admin-guide">Admin Guide</a>
+          <a href="#admin-guide" class="nav-link" data-section="admin-guide">Admin Guide</a>
           <a href="#" class="nav-link" data-section="commands">Management Commands</a>
         </div>
       </nav>
@@ -725,7 +725,7 @@ footer {
       <nav class="nav-section">
         <div class="nav-section-title">Leadership</div>
         <div class="nav-links">
-          <a href="#" class="nav-link" data-section="leadership">Leadership Team</a>
+          <a href="#leadership" class="nav-link" data-section="leadership">Leadership Team</a>
         </div>
       </nav>
     </aside>
@@ -2604,9 +2604,51 @@ document.querySelectorAll(".nav-link").forEach(link => {
     // Show the selected section
     const sectionId = this.getAttribute("data-section");
     document.getElementById(sectionId).classList.add("active");
+    
+    // Update URL hash
+    window.location.hash = sectionId;
+  });
+});
+
+// Handle hash on page load and hash changes
+function loadSectionFromHash() {
+  const hash = window.location.hash.slice(1); // Remove the #
+  
+  if (hash) {
+    // Hide all sections
+    document.querySelectorAll(".content-section").forEach(section => {
+      section.classList.remove("active");
+    });
+    
+    // Remove active from all nav links
+    document.querySelectorAll(".nav-link").forEach(link => {
+      link.classList.remove("active");
+    });
+    
+    // Show the section from hash
+    const section = document.getElementById(hash);
+    if (section) {
+      section.classList.add("active");
+      
+      // Activate the corresponding nav link
+      const navLink = document.querySelector(`[data-section="${hash}"]`);
+      if (navLink) {
+        navLink.classList.add("active");
+      }
+    }
+  }
+}
+
+// Load section on page load
+window.addEventListener('DOMContentLoaded', loadSectionFromHash);
+
+// Load section when hash changes (back/forward buttons)
+window.addEventListener('hashchange', loadSectionFromHash);
   });
 });
 </script>
+
+  
 
 </body>
 </html>
