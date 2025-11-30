@@ -2642,6 +2642,7 @@ function loadSectionFromHash() {
 // Load section on page load
 window.addEventListener('DOMContentLoaded', loadSectionFromHash);
 
+// Load section when hash changes (back/forward buttons)
 window.addEventListener('hashchange', loadSectionFromHash);
 </script>
 
